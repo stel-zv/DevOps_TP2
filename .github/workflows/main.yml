@@ -60,7 +60,7 @@ jobs:
          uses: docker/build-push-action@v3
          with:
             context: ./http-server
-            tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-database:latest
+            tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-http:latest
             push: ${{ github.ref == 'refs/heads/main' }}
 
 
