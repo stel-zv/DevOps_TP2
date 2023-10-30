@@ -19,9 +19,7 @@ jobs:
           java-version: 17
           distribution: adopt
 
-      - name: Set working directory
-        run: cd simple-api
-        
       #finally build your app with the latest command
       - name: Build and test with Maven
         run: mvn clean verify
+        working-directory: simple-api
