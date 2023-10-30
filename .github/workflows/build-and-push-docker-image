@@ -1,15 +1,15 @@
-name: CI devops 2023
+name: Build and publish docker image
 on:
-  #to begin you want to launch this job in main and develop
-  push:
-    branches: main
-  pull_request:
+  workflow_run:
+    workflows: ["Test Backend"]
+    types:
+      - completed
+    push:
+        branches: main
 
 jobs:
    # define job to build and publish docker image
   build-and-push-docker-image:
-     needs: test-backend
-     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
      runs-on: ubuntu-22.04
     
      # steps to perform in job
